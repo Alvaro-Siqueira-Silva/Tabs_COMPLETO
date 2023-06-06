@@ -1,0 +1,7 @@
+{
+  "name": "tabss",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

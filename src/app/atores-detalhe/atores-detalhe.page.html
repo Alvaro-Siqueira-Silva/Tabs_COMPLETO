@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ator?.nome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card *ngIf="ator">
+    <ion-card-header>
+      <img *ngIf="ator.cartaz" src="{{ator.cartaz}}" />
+      <ion-icon *ngIf="!ator.cartaz" name="videocam-off"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{ator.nome}} <ion-icon name="star" [color]="ator.favorito===true ? 'warning' : ('light')"></ion-icon></h1>
+      <p>{{ator.idade}}
+        <ion-chip [color]="ator.premios < 5 ? 'danger' : ((ator.premios < 7 ? 'warning' : 'success'))"
+          outline>
+          <ion-label>{{ator.premios}}</ion-label>
+        </ion-chip>
+      </p>
+      <p>Papeis principais: 
+        {{ator.ppapel}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-badge color="medium" *ngFor="let curiosidades of ator.curiosidades">{{curiosidades}}</ion-badge>
+    </ion-item>
+  </ion-card>
+</ion-content>
